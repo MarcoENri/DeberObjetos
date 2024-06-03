@@ -1,0 +1,88 @@
+## Paso 1: Configuración Inicial
+
+1. **Crear una nueva aplicación de React con TypeScript**:
+
+En el directorio src, crea una carpeta llamada pages y dentro de ella, crea tres archivos: Employees.tsx, Clients.tsx y Home.tsx.
+
+src/App.tsx: El componente principal de la aplicación que configura las rutas utilizando React Router y Refine.
+
+src/pages/Home.tsx: La página de inicio que permite a los usuarios elegir entre ver la página de empleados o la de clientes.
+
+src/pages/Employees.tsx y src/pages/Clients.tsx: Las páginas de empleados y clientes respectivamente, que muestran contenido básico.
+
+import React from 'react';
+
+const Employees: React.FC = () => {
+  return (
+    <div>
+      <h1>Empleados</h1>
+      <p>Lista de empleados...</p>
+    </div>
+  );
+};
+
+export default Employees;
+src/pages/Clients.tsx:
+
+import React from 'react';
+
+const Clients: React.FC = () => {
+  return (
+    <div>
+      <h1>Clientes</h1>
+      <p>Lista de clientes...</p>
+    </div>
+  );
+};
+
+export default Clients;
+src/pages/Home.tsx:
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Home: React.FC = () => {
+  return (
+    <div>
+      <h1>Bienvenido</h1>
+      <p>Elige una opción:</p>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/employees">Empleados</Link>
+          </li>
+          <li>
+            <Link to="/clients">Clientes</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+export default Home;
+
+Configurar las rutas en la aplicación:
+
+En el archivo src/App.tsx, importa React Router y define las rutas:
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Employees from './pages/Employees';
+import Clients from './pages/Clients';
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/employees" element={<Employees />} />
+        <Route path="/clients" element={<Clients />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
