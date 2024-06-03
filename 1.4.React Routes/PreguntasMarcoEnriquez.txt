@@ -1,0 +1,35 @@
+### Pregunta 1
+  
+**¿Cuál es la función principal de React Router? [Semana 6]**
+
+A. ¿Gestionar el estado global de la aplicación?
+
+B. ¿Realizar solicitudes HTTP a servidores externos?
+
+C. ¿Sincronizar la interfaz de usuario con la URL actual? 
+
+ANSWER: C
+
+### Pregunta 2
+
+**¿Qué componente se utiliza para definir una nueva ruta en React Router? [Semana 6]**
+
+A. ¿Link?
+
+B. ¿Route?
+
+C. ¿Switch? 
+
+ANSWER: B
+
+### Pregunta 3
+
+**¿Cómo se navega programáticamente a una nueva ruta usando React Router? [Semana 6]**
+
+A. ¿Utilizando el hook 
+
+B. ¿Usando el componente Switch?
+
+C. ¿Empujando directamente una nueva URL al navegador? 
+
+ANSWER: A
