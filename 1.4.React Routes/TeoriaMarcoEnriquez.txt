@@ -1,0 +1,27 @@
+
+ React Router 
+
+Teoría:
+
+React Router es una biblioteca estándar para el enrutamiento en aplicaciones React. Permite a los desarrolladores crear rutas dinámicas y gestionar la navegación entre diferentes vistas o componentes en una aplicación de una sola página (SPA). Su función principal es sincronizar la interfaz de usuario con la URL actual, ofreciendo una experiencia de navegación fluida y eficiente.
+
+Reflexión: 
+
+El uso de React Router representa un avance significativo en la forma en que las aplicaciones web manejan la navegación. En lugar de recargar toda la página, React Router permite actualizar solo la parte de la interfaz de usuario que cambia, proporcionando una experiencia de usuario más rápida y fluida. Esto no solo mejora el rendimiento, sino que también permite a los desarrolladores crear aplicaciones más interactivas y complejas sin sacrificar la velocidad o la usabilidad.
+
+Analogía:
+
+Pensat en una aplicación React como en un libro. Sin React Router, leer este libro implicaría abrir y cerrar el libro cada vez que quisieras cambiar de capítulo, lo cual sería tedioso y lento. Con React Router, cambiar de capítulo es como pasar de una página a otra sin cerrar el libro, haciendo la experiencia mucho más continua y agradable.
+
+Resumen:
+
+React Router es una herramienta esencial en el desarrollo de aplicaciones React, permitiendo una navegación fluida y eficiente en aplicaciones de una sola página. Al gestionar las rutas y la sincronización de la interfaz de usuario con la URL, React Router mejora significativamente la experiencia del usuario y facilita la creación de aplicaciones web modernas y dinámicas.
+
+Referenciado de libros:
+
+1. "Learning React: Modern Patterns for Developing React Apps"** de Alex Banks y Eve Porcello.
+ 
+2. "React Router Quick Start Guide"** de Sagar Ganatra.
+   
+3. "Fullstack React: The Complete Guide to ReactJS and Friends"** de Anthony Accomazzo, Nathaniel Murray, Ari Lerner, Clay Allsopp, y David Guttman.
+ 
