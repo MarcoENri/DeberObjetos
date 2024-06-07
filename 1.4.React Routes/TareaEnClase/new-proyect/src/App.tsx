@@ -33,10 +33,10 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
-import ProductCreate from "./pages/products/Create";
+import ProductCreate from "./pages/products/create";
 import ProductEdit from "./pages/products/edit";
 import ProductShow from "./pages/products/show";
-import ProductsList from "./pages/products/list";
+import { ProductList } from "./pages/products/list";
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
@@ -123,7 +123,7 @@ const App: React.FC = () => {
                       <Route path="show/:id" element={<CategoryShow />} />
                     </Route>
                     <Route path="/products">
-                      <Route index element={<ProductsList />} />
+                      <Route index element={<ProductList />} />
                       <Route path="create" element={<ProductCreate />} />
                       <Route path="edit/:id" element={<ProductEdit />} />
                       <Route path="show/:id" element={<ProductShow />} />
