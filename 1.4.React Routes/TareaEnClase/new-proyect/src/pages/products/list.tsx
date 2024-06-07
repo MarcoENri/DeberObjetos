@@ -1,52 +1,56 @@
 import React from "react";
-import { useTable, useMany, BaseRecord } from "@refinedev/core";
-import { List, EditButton, ShowButton, DeleteButton } from "@refinedev/antd";
-import { Table, Space } from "antd";
+import {
+    DateField,
+    DeleteButton,
+    EditButton,
+    List,
+    NumberField,
+    ShowButton,
+    useTable,
+} from "@refinedev/antd";
+import { BaseRecord, useMany } from "@refinedev/core";
+import { Space, Table } from "antd";
 
-const ProductsList: React.FC = () => {
-    const { tableQueryResult } = useTable({
+export const ProductList: React.FC = () => {
+    const { tableProps } = useTable({
+        syncWithLocation: true,
         resource: "products",
     });
 
-    const { data, isLoading } = tableQueryResult;
-    const products = data?.data ?? [];
-
-    const categoryIds = products.map((product) => product.category?.id);
     const { data: categoryData, isLoading: categoryIsLoading } = useMany({
         resource: "categories",
-        ids: categoryIds,
+        ids:
+            tableProps?.dataSource?.map((item) => item?.category?.id).filter(Boolean) ?? [],
+        queryOptions: {
+            enabled: !!tableProps?.dataSource,
+        },
     });
-
-    const formatDate = (dateString: string) => {
-        const date = new Date(dateString);
-        return isNaN(date.getTime()) ? "Invalid Date" : date.toLocaleDateString();
-    };
 
     return (
         <List>
-            <Table dataSource={products} loading={isLoading} rowKey="id">
-                <Table.Column dataIndex="id" title="ID" />
-                <Table.Column dataIndex="name" title="Name" />
-                <Table.Column dataIndex="description" title="Description" />
-                <Table.Column dataIndex="price" title="Price" />
+            <Table {...tableProps} rowKey="id">
+                <Table.Column dataIndex="id" title={"ID"} />
+                <Table.Column dataIndex="name" title={"Name"} />
+                <Table.Column dataIndex="description" title={"Description"} />
+                <Table.Column dataIndex="price" title={"Price"} render={(value) => <NumberField value={value} />} />
                 <Table.Column
-                    dataIndex="category"
-                    title="Category"
-                    render={(category) =>
+                    dataIndex={"category"}
+                    title={"Category"}
+                    render={(value) =>
                         categoryIsLoading ? (
                             <>Loading...</>
                         ) : (
-                            categoryData?.data?.find((item) => item.id === category?.id)?.title
+                            categoryData?.data?.find((item) => item.id === value?.id)?.title
                         )
                     }
                 />
                 <Table.Column
-                    dataIndex="createdAt"
-                    title="Created At"
-                    render={(value) => formatDate(value)}
+                    dataIndex={["createdAt"]}
+                    title={"Created at"}
+                    render={(value: any) => <DateField value={value} />}
                 />
                 <Table.Column
-                    title="Actions"
+                    title={"Actions"}
                     dataIndex="actions"
                     render={(_, record: BaseRecord) => (
                         <Space>
@@ -60,5 +64,3 @@ const ProductsList: React.FC = () => {
         </List>
     );
 };
-
-export default ProductsList;
